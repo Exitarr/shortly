@@ -1,9 +1,9 @@
 const express = require("express")
 const router = express.Router()
 
-const {handleShortIdCreation , handleRedirect} = require("../controllers/Url")
+const { handleGetAllUrls ,handleShortIdCreation , handleRedirect} = require("../controllers/Url")
 
-router.route("/").post(handleShortIdCreation)
+router.route("/").get(handleGetAllUrls).post(handleShortIdCreation)
 router.route("/:id").get(handleRedirect)
 
 module.exports = router

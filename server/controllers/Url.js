@@ -3,6 +3,7 @@ const shortid = require('shortid');
 
 
 async function handleGetAllUrls(req, res) {
+    console.log(req.user)
     const urls = await Url.find({id : req.user.id});
     console.log(urls);
 }
@@ -29,6 +30,7 @@ async function handleShortIdCreation(req, res) {
 }
 
 module.exports = {
+    handleGetAllUrls,
     handleShortIdCreation,
     handleRedirect
 }

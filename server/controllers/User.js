@@ -9,13 +9,13 @@ async function handleSignup(req , res){
 }
 
 async function handleLogin(req , res){
-    const {email , password} = req.body
-    const user = await User.findOne({email,password})
+    const {userName , password} = req.body
+    const user = await User.findOne({userName,password})
     if(!user){
         res.status(400).json({message : "Invalid Credentials"})
     }
     const token = setUser(user)
-    res.cookie("uuid" , token)
+    res.cookie(`uuid=${token}; SameSite=None;`)
     res.status(200).json({message : "Login Success"})
 }
 
