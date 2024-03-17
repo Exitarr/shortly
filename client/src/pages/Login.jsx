@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const history = useNavigate();
@@ -15,18 +15,15 @@ export default function Login() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "allow-credentials": "true",
-        "allow-origin": "http://localhost:8000",
       },
       body: JSON.stringify({ userName, password }),
+      credentials: "include",
     });
 
-    const token = await response.data;
-    console.log(token)
-    document.cookie = `token=${token}`;
+
+    const data = await response.json();
 
     if (response.ok) {
-      console.log(data);
       history("/home");
     } else {
       alert(data.message);

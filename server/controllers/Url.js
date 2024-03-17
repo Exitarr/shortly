@@ -3,9 +3,8 @@ const shortid = require('shortid');
 
 
 async function handleGetAllUrls(req, res) {
-    console.log(req.user)
     const urls = await Url.find({id : req.user.id});
-    console.log(urls);
+    res.json(urls);
 }
 
 async function handleRedirect(req, res) {
@@ -19,7 +18,7 @@ async function handleRedirect(req, res) {
             }
         }
     })
-    res.redirect(entry.redirectId)  
+    res.send(entry.originalUrl);
 }
 
 async function handleShortIdCreation(req, res) {

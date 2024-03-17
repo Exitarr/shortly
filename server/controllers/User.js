@@ -9,13 +9,16 @@ async function handleSignup(req, res) {
 
 async function handleLogin(req, res) {
     const { userName, password } = req.body;
+    console.log(req.body);
     const user = await User.findOne({ userName, password });
+    //console.log(user);
     if (!user) {
         res.status(400).json({ message: "Invalid Credentials" });
         return; // Stop execution if user is not found
     }
     const token = setUser(user);
-    res.send({data : token});
+    res.cookie("token", token);
+    res.status(200).send({ data : token, message: "logged in successfully" });
 }
 
 module.exports = {
