@@ -21,7 +21,7 @@ export default function Home() {
     }   
     
     async function handleShorten(originalUrl){
-        console.log(originalUrl);
+        urlRef.current.value = '';
         const response = await fetch('http://localhost:8000/api/urls', {
             method: 'POST',
             headers: {
