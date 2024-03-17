@@ -3,6 +3,7 @@ const { getUser } = require('../services/auth.js');
 async function authMiddleware(req, res, next) {
     // Assuming the token is sent in a secure HTTP-only cookie
     const token = req.cookies.token;
+    console.log(token);
 
     if (!token) {
         return res.status(401).json({ message: 'Unauthorized' });

@@ -5,7 +5,7 @@ export default function Home() {
 
     useEffect(() => {
         handleGetUrls();
-    }, [urls]);
+    }, []);
 
     async function handleGetUrls(){
         const response = await fetch('http://localhost:8000/api/urls', {
