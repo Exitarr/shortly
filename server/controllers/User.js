@@ -17,7 +17,10 @@ async function handleLogin(req, res) {
         return; // Stop execution if user is not found
     }
     const token = setUser(user);
-    res.cookie("token", token);
+    res.cookie("token", token, {
+        httpOnly: true,
+        sameSite: "none",
+    });
     res.status(200).send({ data : token, message: "logged in successfully" });
 }
 

@@ -9,7 +9,7 @@ function handleRedirect() {
   const redirectLogic = async () => {
     const { id } = useParams();
 
-    fetch(`https://shortly-app-api.onrender.com/api/urls/${id}`, {
+    fetch(`http://localhost:8000/api/urls/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
