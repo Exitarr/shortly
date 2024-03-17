@@ -8,7 +8,7 @@ export default function Home() {
     }, []);
 
     async function handleGetUrls(){
-        const response = await fetch('http://localhost:8000/api/urls', {
+        const response = await fetch('https://shortly-app-api.onrender.com/api/urls', {
             method: 'GET',
             credentials: 'include'
         });
@@ -22,7 +22,7 @@ export default function Home() {
     
     async function handleShorten(originalUrl){
         urlRef.current.value = '';
-        const response = await fetch('http://localhost:8000/api/urls', {
+        const response = await fetch('https://shortly-app-api.onrender.com/api/urls', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

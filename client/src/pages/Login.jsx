@@ -11,7 +11,7 @@ export default function Login() {
     const userName = usernameRef.current.value;
     const password = passwordRef.current.value;
 
-    const response = await fetch("http://localhost:8000/auth/login", {
+    const response = await fetch("https://shortly-app-api.onrender.com/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

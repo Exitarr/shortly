@@ -13,7 +13,7 @@ export default function Signup() {
         const userName = usernameRef.current.value;
         const password = passwordRef.current.value;
 
-        const response = await fetch('http://localhost:8000/auth/signup', {
+        const response = await fetch('https://shortly-app-api.onrender.com/auth/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
